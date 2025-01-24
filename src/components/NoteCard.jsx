@@ -4,7 +4,7 @@ import { FiEdit, FiTrash2 } from "react-icons/fi";
 import NoteContext from "../context/NoteContext";
 import ThemeContext from "../context/ThemeContext";
 
-export default function NoteCard({ id, title, description, searchTerm = "" }) {
+export default function NoteCard({ id, title, description, date, searchTerm = "" }) {
   const router = useNavigate();
   const noteContext = useContext(NoteContext);
   const { deleteNote } = noteContext;
@@ -30,6 +30,14 @@ export default function NoteCard({ id, title, description, searchTerm = "" }) {
     );
   };
 
+  // Format the date
+  const formattedDate = new Date(date).toLocaleDateString("en-US", {
+    weekday: "short",
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
+
   return (
     <div
       className={`${
@@ -38,14 +46,12 @@ export default function NoteCard({ id, title, description, searchTerm = "" }) {
     >
       <div className="p-6 flex-1">
         <h3 className="text-xl font-semibold mb-2">{highlightText(title, searchTerm)}</h3>
-        <p
-          className="mb-4 overflow-y-auto"
-          style={{ maxHeight: "6rem" }}
-        >
+        <p className="mb-4 overflow-y-auto" style={{ maxHeight: "6rem" }}>
           {highlightText(description, searchTerm)}
         </p>
       </div>
       <div className="px-6 py-4 flex justify-between items-center">
+        <p className="text-sm text-gray-500">{formattedDate}</p> {/* Display formatted date */}
         <button
           onClick={handleEdit}
           className="flex items-center bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-lg px-4 py-2 transition-colors duration-300"

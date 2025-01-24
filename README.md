@@ -1,8 +1,19 @@
-# React + Vite
+<h1>Notes-Taking App</h1>
+To run the project the project locally, get your db_access url from atlas and paste it in a .env, along with a JWT secret and port
+<br/>
+Structure of env:-
+<br/>
+<b>JWT_SECRET</b>=****
+<br/>
+<b>DB_URL</b>= *****
+<br/>
+<b></b>PORT</b>=*****
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<b>Then follow these commands:-</b><br/>
+<ul>
+  <li>npm install</li>
+  <li>node index.js</li>
+</ul>
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<h2>Description:-</h2>
+<p>This is the backend of notes taking application where user can login and add/maintain their notes.</p>

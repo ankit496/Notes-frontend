@@ -33,7 +33,8 @@ const NoteState = (props) => {
     const newNote = {
       title: note.title,
       description: note.description,
-      id: note._id
+      id: note._id,
+      updatedAt: note.updatedAt
     }
 
     setNotes(notes.concat(newNote))

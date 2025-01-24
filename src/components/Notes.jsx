@@ -7,16 +7,22 @@ import { useNavigate } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 import ThemeContext from "../context/ThemeContext";
 import { FaMoon, FaSun } from 'react-icons/fa';
+import { jwtDecode } from "jwt-decode";
 
 export default function Tasks() {
     const router = useNavigate();
     const context = useContext(NoteContext);
     const { notes, getNotes, loading } = context;
     const [searchTerm, setSearchTerm] = useState("");
+    const [username,setUsername]=useState();
     const { isDarkMode, toggleTheme } = useContext(ThemeContext); // Get the dark mode state and toggle function from ThemeContext
-
+    console.log(notes);
     useEffect(() => {
         if (localStorage.getItem("token")) {
+            const token = localStorage.getItem("token")
+            const decoded = jwtDecode(token);
+            setUsername(decoded.username);
+            console.log(decoded)
             getNotes();
         } else {
             router("/login");
@@ -42,7 +48,7 @@ export default function Tasks() {
             <div className="mx-auto max-w-7xl">
                 {/* Header Section */}
                 <div className={`flex flex-col sm:flex-row justify-between items-center mb-8 ${isDarkMode ? 'bg-gray-700' : 'bg-indigo-800'} p-6 rounded-lg shadow-md`}>
-                    <h1 className="text-4xl font-bold text-white mb-4 sm:mb-0">Your Notes</h1>
+                    <h1 className="text-4xl font-bold text-white mb-4 sm:mb-0">Hi {username}!</h1>
                     <div className="relative w-full max-w-sm sm:w-auto">
                         <div className="relative">
                             <input
@@ -102,6 +108,7 @@ export default function Tasks() {
                                 title={note.title}
                                 description={note.description}
                                 id={note._id}
+                                date={note.updatedAt}
                             />
                         ))}
                     </div>
