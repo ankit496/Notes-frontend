@@ -3,11 +3,8 @@ To run the project the project locally, get your db_access url from atlas and pa
 <br/>
 Structure of env:-
 <br/>
-<b>JWT_SECRET</b>=****
+<b>VITE_URL</b>=https://notes-backend-wvxz.onrender.com
 <br/>
-<b>DB_URL</b>= *****
-<br/>
-<b></b>PORT</b>=*****
 
 <b>Then follow these commands:-</b><br/>
 <ul>
@@ -16,4 +13,5 @@ Structure of env:-
 </ul>
 
 <h2>Description:-</h2>
-<p>This is the backend of notes taking application where user can login and add/maintain their notes.</p>
+<p>This is the frontend of notes taking application where user can login and add/maintain their notes.</p>
+<img src="https://github.com/user-attachments/assets/16715712-f63a-427e-b2fc-03a3bf888a55"></img>
