@@ -9,7 +9,7 @@ Structure of env:-
 <b>Then follow these commands:-</b><br/>
 <ul>
   <li>npm install</li>
-  <li>node index.js</li>
+  <li>npm run dev</li>
 </ul>
 
 <h2>Description:-</h2>
